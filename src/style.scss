@@ -1,0 +1,183 @@
+@import "custom";
+@import "./bootstrap-4.0.0/scss/bootstrap";
+@import "./bootstrap2-toggle.css";
+
+@import url('https://fonts.googleapis.com/css?family=Teko');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+$darkAccent: #224B4B;
+
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-color: #0F0F0F;
+}
+
+#header {
+  color: #DEDEDE;
+  font-family: Teko;
+  font-size: 30px;
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  height: 87vh;
+  margin: 0px 25px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #4A4A4A;
+}
+
+.toolbar {
+  background-color: #1C1C1C;
+  height: 45px;
+  padding-bottom: 50px;
+  padding-top: 5px;
+  border-bottom: 1px rgba(255, 255, 255, 0.1) solid;
+  border-top: 1.5px black solid;
+  font-family: Teko;
+  font-size: 35px;
+  color: #DEDEDE;
+  text-align: left;
+  overflow: hidden;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Chrome and Opera */
+  
+  h1 {
+    font-size: 40px;
+    margin-left: 10px;
+    display: inline-block;
+  }
+
+  #previewToggle {
+    display: inline-block;
+    margin-left: 15px;
+
+
+    h2 {
+      font-size: 30px;
+      padding-top: 15px;
+    }
+  }
+
+}
+
+#left {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+
+  
+  #editor {
+    flex: 1;
+    background-color: #1C1C1C;
+    border: 0px;
+    font-family: Roboto;
+    font-size: 20px;
+    color: white;
+    outline: none;
+    padding-top: 20px;
+  }
+
+  
+}
+
+#dragbar {
+  width: 25px;
+  border: 0.5px black solid;
+  flex: 0 0 auto;
+}
+
+#dragbar:hover {
+  cursor: col-resize;
+  z-index: 1;
+}
+
+#right {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 40vw;
+  min-width: 0;
+  
+  
+  #preview {
+    flex: 1;
+    background-color: #D4D4D4;
+    border: 0px;
+    word-break: break-all;
+    font-size: 18px;
+    color: black;
+    font-family: Roboto;
+    overflow-y: scroll;
+    line-height: 2;
+    
+    * {
+      padding-left: 10px;
+    }
+    
+    blockquote {
+      border-left: 3px solid #224B4B;
+      color: #224B4B;
+      padding-left: 5px;
+      margin-left: 25px;
+    }
+
+    code {
+      background: white;
+      padding: 1px 4px 2px 4px;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 2;
+    }
+
+    pre {
+      background: white;
+      padding: 5px 0 5px 5px;
+    }
+
+    h1 {
+      border-bottom: 2px solid $darkAccent;
+    }
+
+    h2 {
+      border-bottom: 1px solid $darkAccent;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin-left: 10px;
+    }
+
+    td,
+    th {
+      border: 2px solid $darkAccent;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    
+    ul {
+      padding-left: 30px;  
+    }
+    
+    ol {
+      padding-left: 30px;
+    }
+    
+  }
+  
+}
+
+
