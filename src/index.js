@@ -72,7 +72,7 @@ class App extends React.Component {
   constructor(props){
     super(props);   
     this.state = {
-      boxLeftWidth: '',
+      boxLeftWidth: '486.5px',
       editorLabel: 'Editor',
       previewerLabel: 'Previewer',
       markdown: placeholder,
@@ -80,11 +80,16 @@ class App extends React.Component {
     };
     
     this.handleDrag = this.handleDrag.bind(this);
+    this.handleDragOver = this.handleDragOver.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
   }
   
   handleDrag(){
+    dragbar.style.backgroundColor = '#990000';
+    
     let boxLeftWidth = event.clientX - containerOffsetLeft - 22.5;
     if(boxLeftWidth < 0){
       this.setState({boxLeftWidth: 0 + 'px'});
@@ -94,7 +99,19 @@ class App extends React.Component {
     }    
     boxLeft.style.flexGrow = 0; //prevent left box from growing
     boxRight.style.flexBasis = '0%';
-    boxLeft.style.width = this.state.boxLeftWidth; //update css style
+    boxLeft.style.width = this.state.boxLeftWidth; //update css style       
+  }
+
+  handleDragOver(event){   //prevent the clientX from resetting to 0 after dragging
+    event.preventDefault();
+  }
+
+  handleMouseEnter(){
+    dragbar.style.backgroundColor = '#990000';
+  }
+
+  handleMouseOut(){
+    dragbar.style.backgroundColor = '#4A4A4A';
   }
   
   handleChange(e){
@@ -116,7 +133,7 @@ class App extends React.Component {
             <Toolbar text={this.state.editorLabel} />
             <Editor onChange={this.handleChange}/>
           </div>
-          <Dragbar onDrag={this.handleDrag} />
+          <Dragbar onDrag={this.handleDrag} onDragOver={this.handleDragOver} onMouseOut={this.handleMouseOut} onMouseEnter={this.handleMouseEnter}/>
           <div id="right">
             <Toolbar text={this.state.previewerLabel} toggle={this.state.toggle} handleToggle={this.handleToggle}/>
             <Previewer markdown={this.state.markdown} toggle={this.state.toggle} />
@@ -175,7 +192,7 @@ const Previewer = (props) => {
 
 const Dragbar = (props) => {
   return (
-    <div id="dragbar" onDrag={props.onDrag}></div>
+    <div id="dragbar" onDrag={props.onDrag} onDragOver={props.onDragOver} onMouseOut={props.onMouseOut} onMouseEnter={props.onMouseEnter}></div>
   );
 }
 
