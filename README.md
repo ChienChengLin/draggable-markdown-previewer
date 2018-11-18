@@ -5,10 +5,10 @@ DEMO website here :arrow_right: https://chienchenglin.github.io/draggable-markdo
 
 ### :point_down: You Can :point_down:
 - #### Edit your markdown syntax in Editor, and check out the result in Previewer
-![Alt Text](./README-src/record1.gif)
+![live preview snapshot](./README-src/record1.gif)
 
 - #### Click the MARKED/SOURCE button to switch the preview mode between markdown and HTML source
-![Alt Text](./README-src/record2.gif)
+![preview mode snapshot](./README-src/record2.gif)
 
 - #### Drag the bar to resize the Editor/Previewer
-![Alt Text](./README-src/record3.gif)
+![drag to resize snapshot](./README-src/record3.gif)
